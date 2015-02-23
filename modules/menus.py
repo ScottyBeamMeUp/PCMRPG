@@ -11,8 +11,8 @@ def newgame(): ## process for creating a new game
 	vars.stats['room'] = """
 	%s's room:""" % (name)
 	print "Welcome %s!. Your Xbox Live subscription has expired and you are looking for a new way to play games. Will you take the path to enlightenment, or will you continue with your peasantry?" % (vars.stats['name'])
-	story.story(vars.stats['room'], vars.background)
 	savegame()
+	story.story(vars.stats['room'], vars.background)
 def mainmenu(): ##game load
 	vars.stats
 	while 1 == 1:

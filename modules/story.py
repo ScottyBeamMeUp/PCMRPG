@@ -11,7 +11,9 @@ def story(location, quest): ## for printing story elements, and upping quest var
 		vars.stats['quest'] += 1 ## quest var controls place in story and difficulty
 		menus.gamemenu()
 	elif vars.stats['quest'] == 1:
-		choice2 = raw_input()
+		choice2 = 0
+		while choice2 != "H" and choice2 != "P":
+			choice2 = raw_input()
 		if choice2 == 'H':
 			vars.stats['quest'] += .1
 			story(vars.blank, vars.start2)
@@ -24,7 +26,7 @@ def story(location, quest): ## for printing story elements, and upping quest var
 	elif vars.stats['quest'] == 1.2:
 		fight.initfight(vars.flashpeasant)
 		vars.stats['quest'] += 0.8
-	elif vars.stats['quest'] == 2:
+	elif vars.stats['quest'] == 2.0:
 		for g in range(1,4):
 			fight.genfight(vars.consolepeasant)
 		vars.stats['quest'] += 1
@@ -34,7 +36,7 @@ def newquest(): ## determines which story block to pass
     vars.stats
     if vars.stats['quest'] == 1:
         story(vars.stats['room'], vars.start)
-    elif vars.stats['quest'] == 2.0 and "AMD R9 260X" or "nVidia GTX 750" in vars.stats['items']:
-    	story(vars.stats['room'], vars.youtubemission)
-    elif vars.stats['quest'] == 2.0 and "AMD R9 260X" or "nVidia GTX 750" not in vars.stats['items']:
+    elif vars.stats['quest'] == 2.0 and "AMD R9 260X" not in vars.stats['items'] and "nVidia GTX 750" not in vars.stats['items']:
     	print "You should go buy a graphics card first!"
+    elif vars.stats['quest'] == 2.0:
+   		story(vars.stats['room'], vars.youtubemission)
