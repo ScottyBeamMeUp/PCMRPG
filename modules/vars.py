@@ -29,3 +29,9 @@ storefront2 = """
 		------------------------------------------
 		To heal yourself, type repair.
 		"""
+consolepeasant = "0"
+ignreviewer = "1"
+dev = "2"
+megapublisher = "3"
+MSEmployee = "4"
+SonyEmployee = "5"
