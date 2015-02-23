@@ -39,7 +39,7 @@ def gamemenu(): ## main menu once in game
 		elif choice == "i":
 			inventory()
 		elif choice == "f":
-			fight.genfight()
+			fight.genfight(rand)
 def loadfile(): ## for loading the pickle dump- must be saved as pcmrpgsave.txt in same folder
 	vars.stats
 	with open('pcmrpgsave.txt', 'rb') as handle:

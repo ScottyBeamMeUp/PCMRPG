@@ -11,7 +11,7 @@ def storereq(storeinstance, storeitem): ## processes store requests
 	vars.stats
 	if storeinstance == 2:
 		if storeitem == "repair":
-			restorecost = (vars.stats['maxhealth'] - vars.stats['health']) * 1.5
+			restorecost = (vars.stats['maxhealth'] - vars.stats['health']) * 1.25
 			print "A restore to full health will be %r gold." % (restorecost)
 			repairchoice = raw_input("Y/N: ")
 			if repairchoice == "Y" and vars.stats['monies'] - restorecost >= 0:
@@ -32,14 +32,12 @@ def storereq(storeinstance, storeitem): ## processes store requests
 			vars.stats['items'].append("AMD R9 260X")
 			if vars.stats['health'] > vars.stats['maxhealth']:
 				vars.stats['health'] = vars.stats['maxhealth']
-		elif "AMD R9 260X" in vars.stats['items']:
-			print("You already have this item")
 		elif storeitem == "750" and vars.stats['monies'] - 100 >= 0 and "nVidia GTX 750" not in vars.stats['items']:
 			vars.stats['damage'] += 5
 			vars.stats['armor'] += 5
 			vars.stats['monies'] = vars.stats['monies'] - 100
 			vars.stats['items'].append("nVidia GTX 750")
-		elif "nVidia GTX 750" in vars.stats['items']:
+		elif "nVidia GTX 750" or "AMD R9 260X" in vars.stats['items']:
 			print("You already have this item")
 		elif storeitem != "750" and storeitem != "260X":
 			print("You didn't choose an item!")
