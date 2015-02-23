@@ -26,7 +26,7 @@ def storereq(storeinstance, storeitem): ## processes store requests
 					vars.stats['health'] = vars.stats['maxhealth']
 			elif "AMD R9 260X" in vars.stats['items']:
 				print "You already have this item!"
-			elif vars.stats['monies'] - 100 >= 0:
+			elif vars.stats['monies'] - 100 <= 0:
 				print "Not enough gold!"
 		elif storeitem == "750":
 			if vars.stats['monies'] - 100 >= 0 and "nVidia GTX 750" not in vars.stats['items']:
@@ -36,7 +36,7 @@ def storereq(storeinstance, storeitem): ## processes store requests
 				vars.stats['items'].append("nVidia GTX 750")
 			elif "nVidia GTX 750" in vars.stats['items']:
 				print "You already have this item!"
-			elif vars.stats['monies'] - 100 >= 0:
+			elif vars.stats['monies'] - 100 <= 0:
 				print "Not enough gold!"
 		else:
 			print("That's not a choice!")
