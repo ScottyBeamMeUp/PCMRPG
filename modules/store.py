@@ -16,24 +16,28 @@ def storereq(storeinstance, storeitem): ## processes store requests
 	if storeinstance == 2:
 		if storeitem == "repair":
 			repair(2)
-		elif storeitem == "260X" and vars.stats['monies'] - 100 >= 0 and "AMD R9 260X" not in vars.stats['items']:
-			vars.stats['damage'] += 10
-			vars.stats['maxhealth'] = vars.stats['maxhealth'] - 10
-			vars.stats['monies'] = vars.stats['monies'] - 100
-			vars.stats['items'].append("AMD R9 260X")
-			if vars.stats['health'] > vars.stats['maxhealth']:
-				vars.stats['health'] = vars.stats['maxhealth']
-		elif storeitem == "750" and vars.stats['monies'] - 100 >= 0 and "nVidia GTX 750" not in vars.stats['items']:
-			vars.stats['damage'] += 5
-			vars.stats['armor'] += 5
-			vars.stats['monies'] = vars.stats['monies'] - 100
-			vars.stats['items'].append("nVidia GTX 750")
-		elif "nVidia GTX 750" or "AMD R9 260X" in vars.stats['items']:
-			print("You already have this item")
-		elif storeitem != "750" and storeitem != "260X":
-			print("You didn't choose an item!")
-		elif vars.stats['monies'] - 100 < 0:
-			print("Not enough gold!")
+		elif storeitem == "260X":
+			if vars.stats['monies'] - 100 >= 0 and "AMD R9 260X" not in vars.stats['items']:
+				vars.stats['damage'] += 10
+				vars.stats['maxhealth'] = vars.stats['maxhealth'] - 10
+				vars.stats['monies'] = vars.stats['monies'] - 100
+				vars.stats['items'].append("AMD R9 260X")
+				if vars.stats['health'] > vars.stats['maxhealth']:
+					vars.stats['health'] = vars.stats['maxhealth']
+			elif "AMD R9 260X" in vars.stats['items']:
+				print "You already have this item!"
+			elif vars.stats['monies'] - 100 >= 0:
+				print "Not enough gold!"
+		elif storeitem == "750":
+			if vars.stats['monies'] - 100 >= 0 and "nVidia GTX 750" not in vars.stats['items']:
+				vars.stats['damage'] += 5
+				vars.stats['armor'] += 5
+				vars.stats['monies'] = vars.stats['monies'] - 100
+				vars.stats['items'].append("nVidia GTX 750")
+			elif "nVidia GTX 750" in vars.stats['items']:
+				print "You already have this item!"
+			elif vars.stats['monies'] - 100 >= 0:
+				print "Not enough gold!"
 		else:
 			print("That's not a choice!")
 	elif storeinstance == 3:
