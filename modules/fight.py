@@ -6,7 +6,7 @@ def initfight(enemy): ##fight engine
 	while enemy["health"] > 0 and vars.stats["health"] > 0:
 		print "Enemy Health Remaining: %d" % (enemy["health"])
 		print "%s's Health Remaining: %d" % (vars.stats["name"], vars.stats['health'])
-		attack = raw_input("Would you like to (a)ttack, (v)iew inventory, or (r)un: ")
+		attack = raw_input("Would you like to (a)ttack, use thermal (p)aste, (v)iew inventory, or (r)un: ")
 		if attack == "a":
 			enemy["health"] = enemy["health"] - vars.stats["damage"] + enemy['armor']
 			if enemy['armor'] - 1 >= 0:
@@ -31,6 +31,12 @@ def initfight(enemy): ##fight engine
 			else:
 				print "You failed to run away"
 				vars.stats["health"] = vars.stats["health"] - enemy["damage"]
+		if attack == "p":
+			if vars.stats['paste'] >= 1:
+				vars.stats['health'] += 10
+				vars.stats['paste'] = vars.stats['paste'] - 1
+			else:
+				print "You don't have any paste!"
 	if enemy["health"] <= 0:
 		vars.randomyes = 0
 		vars.stats['monies'] += enemy['monies']
