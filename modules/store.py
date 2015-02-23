@@ -16,15 +16,12 @@ def storereq(storeinstance, storeitem): ## processes store requests
 			repairchoice = raw_input("Y/N: ")
 			if repairchoice == "Y" and vars.stats['monies'] - restorecost >= 0:
 				vars.stats['monies'] = vars.stats['monies'] - restorecost
-				menus.gamemenu()
 			elif vars.stats['monies'] - restorecost < 0:
 				print "Not enough gold."
-				menus.gamemenu()
 			elif repairchoice == "N":
-				menus.gamemenu()
+				print "Not repairing."
 			else:
 				print "Invalid Choice"
-				menus.gamemenu()
 		elif storeitem == "260X" and vars.stats['monies'] - 100 >= 0 and "AMD R9 260X" not in vars.stats['items']:
 			vars.stats['damage'] += 10
 			vars.stats['maxhealth'] = vars.stats['maxhealth'] - 10
@@ -41,10 +38,7 @@ def storereq(storeinstance, storeitem): ## processes store requests
 			print("You already have this item")
 		elif storeitem != "750" and storeitem != "260X":
 			print("You didn't choose an item!")
-			menus.gamemenu()
 		elif vars.stats['monies'] - 100 < 0:
 			print("Not enough gold!")
-			menus.gamemenu()
 		else:
 			print("That's not a choice!")
-			menus.gamemenu()

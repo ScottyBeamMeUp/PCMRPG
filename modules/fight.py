@@ -2,7 +2,6 @@ import vars
 import menus
 import random
 def initfight(enemy): ##fight engine
-	vars.stats
 	print "A wild %s appeared!" % (enemy['name'])
 	while enemy["health"] > 0 and vars.stats["health"] > 0:
 		print "Enemy Health Remaining: %d" % (enemy["health"])
@@ -35,7 +34,6 @@ def initfight(enemy): ##fight engine
 		print "You won! You gained %d gold." % (enemy['monies'])
 		if vars.stats['quest'] == 1.2:
 			vars.stats['quest'] += .8
-		menus.gamemenu()
 	elif vars.stats['health'] <= 0:
 		print "You Died"
 		menus.gameover()

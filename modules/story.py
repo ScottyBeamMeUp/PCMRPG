@@ -24,7 +24,11 @@ def story(location, quest): ## for printing story elements, and upping quest var
 	elif vars.stats['quest'] == 1.2:
 		fight.initfight(vars.flashpeasant)
 		vars.stats['quest'] += 0.8
-		menus.gamemenu()
+	elif vars.stats['quest'] == 2:
+		for g in range(1,4):
+			fight.genfight(vars.consolepeasant)
+		vars.stats['quest'] += 1
+		
 		
 def newquest(): ## determines which story block to pass
     vars.stats
