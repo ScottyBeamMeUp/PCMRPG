@@ -1,52 +1,52 @@
-from vars import *
-from menus import *
+import vars
+import menus
 def microcenter(quest, inventory): ##shows store and passes to the store processor
-	global stats
+	vars.stats
 	print "Welcome to MicroCenter! We have all you need for PC building and peasant slaying!"
-	if quest>= 0 and quest<=2:
-		print storefront2
+	if vars.stats['quest']>= 0 and vars.stats['quest']<=2:
+		print vars.storefront2
 		storeitem = raw_input("Please choose an item: ")
 		storereq(2, storeitem)
 def storereq(storeinstance, storeitem): ## processes store requests
-	global stats
+	vars.stats
 	if storeinstance == 2:
 		if storeitem == "repair":
-			restorecost = (stats['maxhealth'] - stats['health']) * 1.5
+			restorecost = (vars.stats['maxhealth'] - vars.stats['health']) * 1.5
 			print "A restore to full health will be %r gold." % (restorecost)
 			repairchoice = raw_input("Y/N: ")
-			if repairchoice == "Y" and stats['monies'] - restorecost >= 0:
-				stats['monies'] = stats['monies'] - restorecost
-				gamemenu()
-			elif stats['monies'] - restorecost < 0:
+			if repairchoice == "Y" and vars.stats['monies'] - restorecost >= 0:
+				vars.stats['monies'] = vars.stats['monies'] - restorecost
+				menus.gamemenu()
+			elif vars.stats['monies'] - restorecost < 0:
 				print "Not enough gold."
-				gamemenu()
+				menus.gamemenu()
 			elif repairchoice == "N":
-				gamemenu()
+				menus.gamemenu()
 			else:
 				print "Invalid Choice"
-				gamemenu()
-		elif storeitem == "260X" and stats['monies'] - 100 >= 0 and "AMD R9 260X" not in stats['items']:
-			stats['damage'] += 10
-			stats['maxhealth'] = stats['maxhealth'] - 10
-			stats['monies'] = stats['monies'] - 100
-			stats['items'].append("AMD R9 260X")
-			if stats['health'] > stats['maxhealth']:
-				stats['health'] = stats['maxhealth']
-		elif "AMD R9 260X" in stats['items']:
+				menus.gamemenu()
+		elif storeitem == "260X" and vars.stats['monies'] - 100 >= 0 and "AMD R9 260X" not in vars.stats['items']:
+			vars.stats['damage'] += 10
+			vars.stats['maxhealth'] = vars.stats['maxhealth'] - 10
+			vars.stats['monies'] = vars.stats['monies'] - 100
+			vars.stats['items'].append("AMD R9 260X")
+			if vars.stats['health'] > vars.stats['maxhealth']:
+				vars.stats['health'] = vars.stats['maxhealth']
+		elif "AMD R9 260X" in vars.stats['items']:
 			print("You already have this item")
-		elif storeitem == "750" and stats['monies'] - 100 >= 0 and "nVidia GTX 750" not in stats['items']:
-			stats['damage'] += 5
-			stats['armor'] += 5
-			stats['monies'] = stats['monies'] - 100
-			stats['items'].append("nVidia GTX 750")
-		elif "nVidia GTX 750" in stats['items']:
+		elif storeitem == "750" and vars.stats['monies'] - 100 >= 0 and "nVidia GTX 750" not in vars.stats['items']:
+			vars.stats['damage'] += 5
+			vars.stats['armor'] += 5
+			vars.stats['monies'] = vars.stats['monies'] - 100
+			vars.stats['items'].append("nVidia GTX 750")
+		elif "nVidia GTX 750" in vars.stats['items']:
 			print("You already have this item")
 		elif storeitem != "750" and storeitem != "260X":
 			print("You didn't choose an item!")
-			gamemenu()
-		elif stats['monies'] - 100 < 0:
+			menus.gamemenu()
+		elif vars.stats['monies'] - 100 < 0:
 			print("Not enough gold!")
-			gamemenu()
+			menus.gamemenu()
 		else:
 			print("That's not a choice!")
-			gamemenu()
+			menus.gamemenu()
