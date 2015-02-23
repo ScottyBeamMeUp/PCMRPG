@@ -5,7 +5,9 @@ def initfight(enemy): ##fight engine
 	print "A wild %s appeared!" % (enemy['name'])
 	while enemy["health"] > 0 and vars.stats["health"] > 0:
 		print "Enemy Health Remaining: %d" % (enemy["health"])
+		print "Enemy Armor Remaining: %d" % (enemy["armor"])
 		print "%s's Health Remaining: %d" % (vars.stats["name"], vars.stats['health'])
+		print "%s's Armor Remaining: %d" % (vars.stats["name"], vars.stats['health'])
 		attack = raw_input("Would you like to (a)ttack, use thermal (p)aste, (v)iew inventory, or (r)un: ")
 		if attack == "a":
 			enemy["health"] = enemy["health"] - vars.stats["damage"] + enemy['armor']
