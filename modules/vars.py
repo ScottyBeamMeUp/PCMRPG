@@ -41,3 +41,12 @@ When you see the comments, a special rage fills your body.
 You feel the need to bring justice to the peasants.'''
 free = 0
 randomyes = 0
+storefront3 = """
+		____________________________________________________________________
+		|Thermal Paste	 |Case            |Intel Core i3   |AMD FX 6300    |
+		|Consumable 10 G |Armor Boost 20 G|150 G           |125 G          |
+		|Restore 10      |+ 2 Armor       |+ 20 Damage     |+ 25 Damage    |
+		|health in battle|                |+ 10 Max Health |- 5 Max Health |
+		-------------------------------------------------------------------
+		To heal yourself, type repair. You get one free repair before your next quest.
+		"""
