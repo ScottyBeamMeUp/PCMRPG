@@ -9,7 +9,6 @@ def story(location, quest): ## for printing story elements, and upping quest var
 	""" % (location, quest)
 	if vars.stats['quest'] == 0:
 		vars.stats['quest'] += 1 ## quest var controls place in story and difficulty
-		menus.gamemenu()
 	elif vars.stats['quest'] == 1:
 		choice2 = raw_input()
 		if choice2 == 'H':
@@ -34,7 +33,7 @@ def newquest(): ## determines which story block to pass
     vars.stats
     if vars.stats['quest'] == 1:
         story(vars.stats['room'], vars.start)
-    elif vars.stats['quest'] == 2.0 and "AMD R9 260x" or "nVidia GTX 750" in vars.stats['items']:
+    elif vars.stats['quest'] == 2.0 and "AMD R9 260X" or "nVidia GTX 750" in vars.stats['items']:
     	story(vars.stats['room'], vars.youtubemission)
-    elif vars.stats['quest'] == 2.0 and "AMD R9 260x" or "nVidia GTX 750" not in vars.stats['items']:
+    elif vars.stats['quest'] == 2.0 and "AMD R9 260X" or "nVidia GTX 750" not in vars.stats['items']:
     	print "You should go buy a graphics card first!"
