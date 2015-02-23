@@ -10,7 +10,11 @@ def initfight(enemy): ##fight engine
 		attack = raw_input("Would you like to (a)ttack, (v)iew inventory, or (r)un: ")
 		if attack == "a":
 			enemy["health"] = enemy["health"] - vars.stats["damage"] + enemy['armor']
+			if enemy['armor'] - 1 >= 0:
+				enemy["armor"] = enemy['armor'] - 1
 			vars.stats["health"] = vars.stats["health"] - enemy["damage"] + vars.stats['armor']
+			if vars.stats["armor"] -1 >= 0:
+				vars.stats["armor"] = vars.stats["armor"] -1
 		if attack == "v":
 			menus.inventory()
 		if attack == "r":
