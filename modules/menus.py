@@ -12,6 +12,7 @@ def newgame(): ## process for creating a new game
 	%s's room:""" % (name)
 	print "Welcome %s!. Your Xbox Live subscription has expired and you are looking for a new way to play games. Will you take the path to enlightenment, or will you continue with your peasantry?" % (vars.stats['name'])
 	story.story(vars.stats['room'], vars.background)
+	savegame()
 def mainmenu(): ##game load
 	vars.stats
 	while 1 == 1:
@@ -25,8 +26,7 @@ def gamemenu(): ## main menu once in game
 	while 1 == 1:
 		choice = raw_input("Choices: (s)ave, (q)uit, (n)ext quest, (m)icrocenter (p)layer info, (i)nventory, (f)ight a random enemy: ")
 		if choice == "s":
-			with open('pcmrpgsave.txt', 'wb') as handle:
-				pickle.dump(vars.stats, handle)
+			savegame()
 		elif choice == "q":
 			sys.exit()
 		elif choice == "n":
@@ -56,3 +56,6 @@ def inventory(): ## inventory list
 		print object
 	print "You have %d gold" % (vars.stats['monies'])
 	print "You have %d health out of %d max" % (vars.stats['health'], vars.stats['maxhealth'])
+def savegame():
+	with open('pcmrpgsave.txt', 'wb') as handle:
+		pickle.dump(vars.stats, handle)
