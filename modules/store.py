@@ -1,7 +1,6 @@
 import vars
 import menus
 def microcenter(quest, inventory): ##shows store and passes to the store processor
-	vars.stats
 	print "Welcome to MicroCenter! We have all you need for PC building and peasant slaying!"
 	if vars.stats['quest']>= 0 and vars.stats['quest']<=2:
 		print vars.storefront2
@@ -12,7 +11,6 @@ def microcenter(quest, inventory): ##shows store and passes to the store process
 		storeitem = raw_input("Please choose an item: ")
 		storereq(3, storeitem)
 def storereq(storeinstance, storeitem): ## processes store requests
-	vars.stats
 	if storeinstance == 2:
 		if storeitem == "repair":
 			repair(2)
@@ -26,7 +24,7 @@ def storereq(storeinstance, storeitem): ## processes store requests
 					vars.stats['health'] = vars.stats['maxhealth']
 			elif "AMD R9 260X" in vars.stats['items']:
 				print "You already have this item!"
-			elif vars.stats['monies'] - 100 <= 0:
+			elif vars.stats['monies'] - 100 < 0:
 				print "Not enough gold!"
 		elif storeitem == "750":
 			if vars.stats['monies'] - 100 >= 0 and "nVidia GTX 750" not in vars.stats['items']:
@@ -36,13 +34,46 @@ def storereq(storeinstance, storeitem): ## processes store requests
 				vars.stats['items'].append("nVidia GTX 750")
 			elif "nVidia GTX 750" in vars.stats['items']:
 				print "You already have this item!"
-			elif vars.stats['monies'] - 100 <= 0:
+			elif vars.stats['monies'] - 100 < 0:
 				print "Not enough gold!"
 		else:
 			print("That's not a choice!")
 	elif storeinstance == 3:
 		if storeitem == "repair":
 			repair(3)
+		elif storeitem == "P":
+			if vars.stats['monies'] - 10 >= 0:
+				vars.stats['monies'] = vars.stats['monies'] - 10
+				vars.stats['paste'] += 1
+			elif vars.stats['monies'] - 10 < 0:
+				print "Not enough gold!"
+		elif storeitem == "C":
+			if vars.stats['monies'] - 20 >= 0:
+				vars.stats['monies'] = vars.stats['monies'] - 10
+				vars.stats['armor'] += 2
+			elif vars.stats['monies'] - 20 < 0:
+				print "Not enough gold!"
+		elif storeitem == "i":
+			if vars.stats['monies'] - 150 >= 0:
+				vars.stats['items'].append("Intel Core i3")
+				vars.stats['damage'] += 20
+				vars.stats['maxhealth'] += 10
+			elif vars.stats['monies'] - 150 < 0:
+				print "Not enough gold"
+			elif "Intel Core i3" in vars.stats['items']:
+				print "You already have this item!"
+		elif storeitem == "A":
+			if vars.stats['monies'] - 125 >= 0:
+				vars.stats['monies'] = vars.stats['monies'] - 125
+				vars.stats['items'].append("AMD FX 6300")
+				vars.stats['damage'] += 25
+				vars.stats['health'] = vars.stats['health'] - 5
+			elif vars.stats['monies'] - 125 < 0:
+				print "You already have this item"
+			elif "AMD FX 6300" in vars.stats['items']:
+				print "You already have this item"
+		else:
+			print "That's not a choice!"
 def repair(instance):
 	restorecost = (vars.stats['maxhealth'] - vars.stats['health']) * 1.25
 	if vars.free == 0 and instance == 3:

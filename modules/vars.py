@@ -1,6 +1,6 @@
 ## variables -- define numbers and story blocks
 enemylist = ["Console Peasant", "IGN Reviewer", "Exclusive Developer", "MegaPublisher", "Microsoft Employee", "Sony Employee",]
-stats = {'health' : 100, 'maxhealth' : 100, 'damage' : 5, 'armor' : 0, 'quest' : 0, 'status' : "peasant", "items" : ["Macbook Air", "Xbox 360"], 'monies': 0}
+stats = {'health' : 100, 'maxhealth' : 100, 'damage' : 5, 'armor' : 0, 'quest' : 0, 'status' : "peasant", "items" : ["Macbook Air", "Xbox 360"], 'monies': 0, "paste" : 0}
 blank = ''
 flashpeasant = {'name': "Console Peasant", 'health' : 20, 'maxhealth' : 20, 'damage' : 5, 'armor' : 0, 'monies' : 100} ## for first fight-pregenerated so you can't lose
 background = """
@@ -43,7 +43,7 @@ free = 0
 randomyes = 0
 storefront3 = """
 		____________________________________________________________________
-		|Thermal Paste	 |Case            |Intel Core i3   |AMD FX 6300    |
+		|Thermal (P)aste |(C)ase          |Intel Core (i)3 |(A)MD FX 6300  |
 		|Consumable 10 G |Armor Boost 20 G|150 G           |125 G          |
 		|Restore 10      |+ 2 Armor       |+ 20 Damage     |+ 25 Damage    |
 		|health in battle|                |+ 10 Max Health |- 5 Max Health |
