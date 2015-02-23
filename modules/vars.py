@@ -35,3 +35,7 @@ dev = "2"
 megapublisher = "3"
 MSEmployee = "4"
 SonyEmployee = "5"
+youtubemission = '''
+You go online to watch your favorite youtube videos.
+When you see the comments, a special rage fills your body.
+You feel the need to bring justice to the peasants.'''
