@@ -18,11 +18,13 @@ def initfight(enemy): ##fight engine
 			menus.inventory()
 		if attack == "r":
 			randint = random.randint(1,100)
-			if vars.stats['quest'] == 1.2:
-				print "You can't run from the first fight!"
+			if vars.randomyes == 0:
+				print "You can't run from a non-random encounter!"
 			elif randint >= 75:
+				vars.randomyes = 0
 				menus.gamemenu()
 			elif randint >=50:
+				vars.randomyes = 0
 				vars.stats['monies'] = vars.stats['monies'] / 2
 				print "In a panic, you lost half of your gold."
 				menus.gamemenu()
@@ -30,6 +32,7 @@ def initfight(enemy): ##fight engine
 				print "You failed to run away"
 				vars.stats["health"] = vars.stats["health"] - enemy["damage"]
 	if enemy["health"] <= 0:
+		vars.randomyes = 0
 		vars.stats['monies'] += enemy['monies']
 		print "You won! You gained %d gold." % (enemy['monies'])
 		if vars.stats['quest'] == 1.2:
@@ -65,6 +68,7 @@ def genfight(choice): ## enemy generation
 			randomenemy['name'] = vars.enemylist[4]
 		elif randint < 100:
 			randomenemy['name'] = vars.enemylist[5]
+		vars.randomyes = 1
 	if randomenemy['name'] == vars.enemylist[0]:
 		dmgscale = 1
 		healthscale = 1

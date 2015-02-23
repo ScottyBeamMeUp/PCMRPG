@@ -25,7 +25,6 @@ def story(location, quest): ## for printing story elements, and upping quest var
 		vars.stats['monies'] += 100		
 	elif vars.stats['quest'] == 1.2:
 		fight.initfight(vars.flashpeasant)
-		vars.stats['quest'] += 0.8
 	elif vars.stats['quest'] == 2.0:
 		for g in range(1,4):
 			fight.genfight(vars.consolepeasant)
