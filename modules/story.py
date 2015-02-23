@@ -9,6 +9,7 @@ def story(location, quest): ## for printing story elements, and upping quest var
 	""" % (location, quest)
 	if vars.stats['quest'] == 0:
 		vars.stats['quest'] += 1 ## quest var controls place in story and difficulty
+		menus.gamemenu()
 	elif vars.stats['quest'] == 1:
 		choice2 = raw_input()
 		if choice2 == 'H':
