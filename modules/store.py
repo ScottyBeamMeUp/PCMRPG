@@ -50,7 +50,7 @@ def storereq(storeinstance, storeitem): ## processes store requests
 		elif storeitem == "C":
 			if vars.stats['monies'] - 20 >= 0:
 				vars.stats['monies'] = vars.stats['monies'] - 10
-				vars.stats['armor'] += 2
+				vars.stats['armor'] += 4
 			elif vars.stats['monies'] - 20 < 0:
 				print "Not enough gold!"
 		elif storeitem == "i":
