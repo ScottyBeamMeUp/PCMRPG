@@ -1,1 +1,3 @@
 pcmrpgsave.txt
+*.pyc
+/modules/*.pyc
