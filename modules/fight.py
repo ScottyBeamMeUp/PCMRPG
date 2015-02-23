@@ -112,6 +112,6 @@ def genfight(choice): ## enemy generation
 	armorint = random.randint(1,3)
 	randomenemy['armor'] = armorint + armorscale + vars.stats['quest']
 	goldint = random.randint(2,3)
-	randomenemy['monies'] = goldint * goldscale * vars.stats['quest']
+	randomenemy['monies'] = goldint * goldscale * vars.stats['quest'] * 2
 	randomenemy['maxhealth'] = randomenemy['health']
 	initfight(randomenemy)
