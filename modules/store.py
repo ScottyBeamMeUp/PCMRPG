@@ -7,21 +7,15 @@ def microcenter(quest, inventory): ##shows store and passes to the store process
 		print vars.storefront2
 		storeitem = raw_input("Please choose an item: ")
 		storereq(2, storeitem)
+	elif vars.stats['quest'] == 3:
+		print vars.storefront3
+		storeitem = raw_input("Please choose an item: ")
+		storereq(3, storeitem)
 def storereq(storeinstance, storeitem): ## processes store requests
 	vars.stats
 	if storeinstance == 2:
 		if storeitem == "repair":
-			restorecost = (vars.stats['maxhealth'] - vars.stats['health']) * 1.25
-			print "A restore to full health will be %r gold." % (restorecost)
-			repairchoice = raw_input("Y/N: ")
-			if repairchoice == "Y" and vars.stats['monies'] - restorecost >= 0:
-				vars.stats['monies'] = vars.stats['monies'] - restorecost
-			elif vars.stats['monies'] - restorecost < 0:
-				print "Not enough gold."
-			elif repairchoice == "N":
-				print "Not repairing."
-			else:
-				print "Invalid Choice"
+			repair(2)
 		elif storeitem == "260X" and vars.stats['monies'] - 100 >= 0 and "AMD R9 260X" not in vars.stats['items']:
 			vars.stats['damage'] += 10
 			vars.stats['maxhealth'] = vars.stats['maxhealth'] - 10
@@ -42,3 +36,24 @@ def storereq(storeinstance, storeitem): ## processes store requests
 			print("Not enough gold!")
 		else:
 			print("That's not a choice!")
+	elif storeinstance == 3:
+		if storeitem == "repair":
+			repair(3)
+def repair(instance):
+	restorecost = (vars.stats['maxhealth'] - vars.stats['health']) * 1.25
+	if vars.free == 0 and instance == 3:
+		print 'First repair is free!'
+		vars.free += 1
+		vars.stats['health'] = vars.stats['maxhealth']
+	else:
+		print "A restore to full health will be %r gold." % (restorecost)
+		repairchoice = raw_input("Y/N: ")
+		if repairchoice == "Y" and vars.stats['monies'] - restorecost >= 0:
+			vars.stats['monies'] = vars.stats['monies'] - restorecost
+			vars.stats['health'] = vars.stats['maxhealth']
+		elif vars.stats['monies'] - restorecost < 0:
+			print "Not enough gold."
+		elif repairchoice == "N":
+			print "Not repairing."
+		else:
+			print "Invalid Choice"
