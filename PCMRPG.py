@@ -1,6 +1,3 @@
-import sys
-import pickle
-import random
 import modules.menus
 ## exec--hold my mouse I'm going in!
 modules.menus.mainmenu()
