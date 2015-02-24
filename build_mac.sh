@@ -16,9 +16,10 @@ fi
 dependency ()
 {
   if which pip >/dev/null; then
+    echo Installing pip
     curl -0 https://bootstrap.pypa.io/get-pip.py
     python get-pip.py
-    echo Installing pip
   fi
+  echo Installing pyinstaller
   pip install pyinstaller
 }
