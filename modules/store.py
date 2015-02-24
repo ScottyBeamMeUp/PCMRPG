@@ -7,9 +7,12 @@ def microcenter(quest, inventory): ##shows store and passes to the store process
 		storeitem = raw_input("Please choose an item: ")
 		storereq(2, storeitem)
 	elif vars.stats['quest'] == 3:
-		print vars.storefront3
-		storeitem = raw_input("Please choose an item: ")
-		storereq(3, storeitem)
+		if vars.free == 0:
+			print vars.storefront3
+			storeitem = raw_input("Please choose an item: ")
+			storereq(3, storeitem)
+		elif vars.free == 1:
+			print vars.storefront3nonfree
 def storereq(storeinstance, storeitem): ## processes store requests
 	if storeinstance == 2:
 		if storeitem == "repair":
