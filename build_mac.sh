@@ -17,7 +17,7 @@ dependency ()
 {
   if which pip >/dev/null; then
     echo Installing pip
-    curl -0 https://bootstrap.pypa.io/get-pip.py
+    curl -O https://bootstrap.pypa.io/get-pip.py
     python get-pip.py
   fi
   echo Installing pyinstaller
