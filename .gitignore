@@ -54,3 +54,5 @@ docs/_build/
 target/
 pcmrpgsave.txt
 PCMRPGshell/Contents/Resources/Scripts/PCMRPG
+
+PCMRPGshell.app/Contents/Resources/Scripts/PCMRPG
