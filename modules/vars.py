@@ -50,3 +50,14 @@ storefront3 = """
 		-------------------------------------------------------------------
 		To heal yourself, type repair. You get one free repair before your next quest.
 		"""
+storefront3nonfree = """
+		____________________________________________________________________
+		|Thermal (P)aste |(C)ase          |Intel Core (i)3 |(A)MD FX 6300  |
+		|Consumable 10 G |Armor Boost 20 G|150 G           |125 G          |
+		|Restore 10      |+ 4 Armor       |+ 20 Damage     |+ 25 Damage    |
+		|health in battle|                |+ 10 Max Health |- 5 Max Health |
+		-------------------------------------------------------------------
+		To heal yourself, type repair.
+		"""
+afteryoutube == """
+The maker of the video thanks you and recommends that you buy yourself a CPU."
