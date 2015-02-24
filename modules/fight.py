@@ -38,7 +38,7 @@ def initfight(enemy): ##fight engine
 				if vars.stats['health'] + 10 <= vars.stats['maxhealth']:
 					vars.stats['health'] += 10
 					vars.stats['paste'] = vars.stats['paste'] - 1
-				elif: vars.stats['health'] + 10 <= vars.stats['maxhealth'] + 10:
+				elif vars.stats['health'] + 10 <= vars.stats['maxhealth'] + 10:
 					vars.stats['health'] = vars.stats['maxhealth']
 					vars.stats['paste'] = vars.stats['paste'] - 1
 				else:
