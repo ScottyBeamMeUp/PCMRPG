@@ -59,6 +59,6 @@ storefront3nonfree = """
 		-------------------------------------------------------------------
 		To heal yourself, type repair.
 		"""
-afteryoutube == """
+afteryoutube = """
 The maker of the video thanks you and recommends that you buy yourself a CPU.
 """
