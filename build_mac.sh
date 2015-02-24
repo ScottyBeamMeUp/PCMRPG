@@ -4,4 +4,21 @@ if which pyinstaller >/dev/null; then
   cp dist/PCMRPG PCMRPGshell.app/Contents/Resources/Scripts/
 else
   echo Pyinstaller is not installed. Please install it.
+  while true; do
+    read -p "Do you wish to resolve dependencies?" yn
+    case $yn in
+        [Yy]* ) dependency; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 fi
+dependency ()
+{
+  if which pip >/dev/null; then
+    curl -0 https://bootstrap.pypa.io/get-pip.py
+    python get-pip.py
+    echo Installing pip
+  fi
+  pip install pyinstaller
+}
