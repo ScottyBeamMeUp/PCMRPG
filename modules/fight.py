@@ -5,7 +5,9 @@ def initfight(enemy): ##fight engine
 	print "A wild %s appeared!" % (enemy['name'])
 	while enemy["health"] > 0 and vars.stats["health"] > 0:
 		print "Enemy Health Remaining: %d" % (enemy["health"])
+		print "Enemy Armor Remaining: %d" % (enemy["armor"])
 		print "%s's Health Remaining: %d" % (vars.stats["name"], vars.stats['health'])
+		print "%s's Armor Remaining: %d" % (vars.stats["name"], vars.stats['armor'])
 		attack = raw_input("Would you like to (a)ttack, use thermal (p)aste, (v)iew inventory, or (r)un: ")
 		if attack == "a":
 			enemy["health"] = enemy["health"] - vars.stats["damage"] + enemy['armor']
@@ -33,8 +35,14 @@ def initfight(enemy): ##fight engine
 				vars.stats["health"] = vars.stats["health"] - enemy["damage"]
 		if attack == "p":
 			if vars.stats['paste'] >= 1:
-				vars.stats['health'] += 10
-				vars.stats['paste'] = vars.stats['paste'] - 1
+				if vars.stats['health'] + 10 <= vars.stats['maxhealth']:
+					vars.stats['health'] += 10
+					vars.stats['paste'] = vars.stats['paste'] - 1
+				elif vars.stats['health'] + 10 <= vars.stats['maxhealth'] + 10:
+					vars.stats['health'] = vars.stats['maxhealth']
+					vars.stats['paste'] = vars.stats['paste'] - 1
+				else:
+					print "You can't heal past max health!"
 			else:
 				print "You don't have any paste!"
 	if enemy["health"] <= 0:

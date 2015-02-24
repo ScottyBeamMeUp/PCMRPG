@@ -14,7 +14,6 @@ def newgame(): ## process for creating a new game
 	savegame()
 	story.story(vars.stats['room'], vars.background)
 def mainmenu(): ##game load
-	vars.stats
 	while 1 == 1:
 		path = raw_input("Would you like to start a (n)ew game or (l)oad a saved one? ")
 		if path == 'n':
@@ -22,7 +21,6 @@ def mainmenu(): ##game load
 		elif path == 'l':
 			loadfile()
 def gamemenu(): ## main menu once in game
-	vars.stats
 	while 1 == 1:
 		choice = raw_input("Choices: (s)ave, (q)uit, (n)ext quest, (m)icrocenter (p)layer info, (i)nventory, (f)ight a random enemy: ")
 		if choice == "s":
@@ -41,7 +39,6 @@ def gamemenu(): ## main menu once in game
 		elif choice == "f":
 			fight.genfight(vars.blank)
 def loadfile(): ## for loading the pickle dump- must be saved as pcmrpgsave.txt in same folder
-	vars.stats
 	with open('pcmrpgsave.txt', 'rb') as handle:
 		vars.stats = pickle.loads(handle.read())
 	print "Welcome back %s!" % (vars.stats['name'])
@@ -51,10 +48,11 @@ def gameover(): ##deletes save and quits
 	f.truncate()
 	sys.exit()
 def inventory(): ## inventory list
-	vars.stats
 	for object in vars.stats['items']:
 		print object
 	print "You have %d gold" % (vars.stats['monies'])
+	print "You have %d armor" % (vars.stats['armor'])
+	print "You have %d thermal paste" % (vars.stats['paste'])
 	print "You have %d health out of %d max" % (vars.stats['health'], vars.stats['maxhealth'])
 def savegame():
 	with open('pcmrpgsave.txt', 'wb') as handle:
