@@ -28,7 +28,10 @@ def story(location, quest): ## for printing story elements, and upping quest var
 	elif vars.stats['quest'] == 2.0:
 		for g in range(1,4):
 			fight.genfight(vars.consolepeasant)
-		vars.stats['quest'] += 1
+		vars.stats['quest'] += .5
+		story(vars.blank, vars.afteryoutube)
+	elif vars.stats['quest'] == 2.5:
+		vars.stats['quest'] += .5
 		
 		
 def newquest(): ## determines which story block to pass
